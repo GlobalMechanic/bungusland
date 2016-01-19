@@ -1,0 +1,35 @@
+@import 'vars';
+@import 'mixins';
+
+
+* {
+  box-sizing: border-box;
+  &:focus {outline: none; outline:0; }
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include containing-block;
+  background: $bg-color;
+  font-family:'Gotham Narrow SSm A', 'Gotham Narrow SSm B', 'Gotham Narrow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+  font-size: 16px;
+  color: $brown;
+}
+
+h1 {
+	font-weight: 300;
+}
+
+a {
+  color: $brown;
+}
+
+p {
+  white-space: pre-wrap;
+}

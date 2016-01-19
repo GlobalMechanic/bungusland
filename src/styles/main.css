@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box; }
+  *:focus {
+    outline: none;
+    outline: 0; }
+
+html {
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-width: 320px;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #E29F9F;
+  font-family: 'Gotham Narrow SSm A', 'Gotham Narrow SSm B', 'Gotham Narrow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+  font-size: 16px;
+  color: #402A27; }
+
+h1 {
+  font-weight: 300; }
+
+a {
+  color: #402A27; }
+
+p {
+  white-space: pre-wrap; }
+
+/*# sourceMappingURL=main.css.map */
