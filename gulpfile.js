@@ -153,13 +153,13 @@ function script_optimization()
 	gulp.src(source + '/scripts/**/*.js')
 		.pipe($.newer(distro_scripts))
 		.pipe($.babel({
-			presets: ["es2015"]
+			presets: ["es2015"],
+			only : /bungus*/
 		}))
-	   // .pipe($.uglify())
+	   	.pipe($.uglify())
 		.pipe(gulp.dest(distro_scripts))
 		.pipe($.size());
 }
-
 
 function copy_newer(dir)
 {
@@ -170,7 +170,6 @@ function copy_newer(dir)
 		.pipe($.size());
 
 }
-
 
 /*-----------------------------------------------------------------------------------------------
 	Setup
