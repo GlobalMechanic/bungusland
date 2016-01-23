@@ -27,14 +27,14 @@ For testing things like routes, you'll want to run off express using `node serve
 
 ## Building & Deploying
 
-If you would like to update `http://globalmechanic.com` to the current state of things, just:
+If you would like to update `http://bungusland.herokuapp.com` to the current state of things, just:
 
 1. Run `gulp build` from the root folder.
 2. Commit your changes and push to master.
 
 Heroku is linked to the Github master branch, and will deploy automatically.
 
-## Ignored
+## Ignore
 
 If this is a copy of a template, and you're setting it up on git for the first time, this should be in the ignore file:
 ```

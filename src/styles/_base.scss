@@ -1,35 +1,99 @@
 @import 'vars';
 @import 'mixins';
 
-
-* {
-  box-sizing: border-box;
-  &:focus {outline: none; outline:0; }
-}
-
-html {
-  margin: 0;
-  padding: 0;
-}
-
+/*******************************************************/
+  //Universal
+/*******************************************************/
 body {
-  @include containing-block;
-  background: $bg-color;
-  font-family:'Gotham Narrow SSm A', 'Gotham Narrow SSm B', 'Gotham Narrow', sans-serif;
+
+  font-family: 'OpenSans-Light', sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 300;
-  font-size: 16px;
-  color: $brown;
+  font-size: 20px;
+
+  background: $color-bg;
 }
 
-h1 {
-	font-weight: 300;
+
+/*******************************************************/
+  //Helper and Generic
+/*******************************************************/
+.center {
+  text-align: center;
 }
 
-a {
-  color: $brown;
+.transition-1s {
+  @include transition(1s);
 }
 
-p {
-  white-space: pre-wrap;
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pure-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vertical-spacer {
+  min-height: 0vh;
+  height: 5vh;
+  width: 100vw;
+}
+
+/*******************************************************/
+  //Main Preload
+/*******************************************************/
+
+#main-webload {
+  @extend .flex-center;
+
+  position: fixed;
+  z-index: 5;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: $color-content;
+
+  margin: auto;
+}
+
+#main-webload.preload-complete {
+  height: 0vh;
+}
+
+#main-webload img {
+  @include transition(1s);
+  @include scale(1)
+}
+#main-webload.preload-complete img {
+  @include scale(0);
+}
+
+#main-content {
+  display: none;
+}
+
+/*******************************************************/
+  //Nav
+/*******************************************************/
+
+.btn {
+  @include transition(0.2s);
+  cursor: pointer;
+}
+
+.nav-btn {
+  @extend .btn;
+  background-color: $dark * $color-content;
+  color: $darkest * $color-content;
+
+  max-width: 400px;
+}
+
+.nav-btn:hover {
+  color: $darker * $color-content;
+  background-color: $color-content;
 }
