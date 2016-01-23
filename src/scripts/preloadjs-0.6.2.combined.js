@@ -26,12 +26,11 @@
 * OTHER DEALINGS IN THE SOFTWARE.
 */
 
+var createjs = {};
 
 //##############################################################################
 // version.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -63,8 +62,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // extend.js
 //##############################################################################
-
-this.createjs = this.createjs||{};
 
 /**
  * @class Utility Methods
@@ -99,8 +96,6 @@ createjs.extend = function(subclass, superclass) {
 //##############################################################################
 // promote.js
 //##############################################################################
-
-this.createjs = this.createjs||{};
 
 /**
  * @class Utility Methods
@@ -160,8 +155,6 @@ createjs.promote = function(subclass, prefix) {
 // proxy.js
 //##############################################################################
 
-this.createjs = this.createjs||{};
-
 /**
  * Various utilities that the CreateJS Suite uses. Utilities are created as separate files, and will be available on the
  * createjs namespace directly.
@@ -212,8 +205,6 @@ this.createjs = this.createjs||{};
 // indexOf.js
 //##############################################################################
 
-this.createjs = this.createjs||{};
-
 /**
  * @class Utility Methods
  */
@@ -243,8 +234,6 @@ createjs.indexOf = function (array, searchElement){
 //##############################################################################
 // Event.js
 //##############################################################################
-
-this.createjs = this.createjs||{};
 
 (function() {
 	"use strict";
@@ -471,8 +460,6 @@ this.createjs = this.createjs||{};
 // ErrorEvent.js
 //##############################################################################
 
-this.createjs = this.createjs||{};
-
 (function() {
 	"use strict";
 
@@ -522,8 +509,6 @@ this.createjs = this.createjs||{};
 //##############################################################################
 // EventDispatcher.js
 //##############################################################################
-
-this.createjs = this.createjs||{};
 
 (function() {
 	"use strict";
@@ -918,8 +903,6 @@ this.createjs = this.createjs||{};
 //##############################################################################
 // ProgressEvent.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function (scope) {
 	"use strict";
@@ -1987,8 +1970,6 @@ this.createjs = this.createjs || {};
 // LoadItem.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -2481,8 +2462,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // AbstractLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -3212,8 +3191,6 @@ this.createjs = this.createjs || {};
 // AbstractMediaLoader.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -3314,8 +3291,6 @@ this.createjs = this.createjs || {};
 // AbstractRequest.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -3359,8 +3334,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // TagRequest.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -3547,8 +3520,6 @@ this.createjs = this.createjs || {};
 // MediaTagRequest.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -3638,8 +3609,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // XHRRequest.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -4172,8 +4141,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // LoadQueue.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 /*
  TODO: WINDOWS ISSUES
@@ -6039,8 +6006,6 @@ this.createjs = this.createjs || {};
 // TextLoader.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -6079,8 +6044,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // BinaryLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -6132,8 +6095,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // CSSLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -6216,8 +6177,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // ImageLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -6375,8 +6334,6 @@ this.createjs = this.createjs || {};
 // JavaScriptLoader.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -6439,8 +6396,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // JSONLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -6506,8 +6461,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // JSONPLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -6657,8 +6610,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // ManifestLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -6858,8 +6809,6 @@ this.createjs = this.createjs || {};
 // SoundLoader.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -6927,8 +6876,6 @@ this.createjs = this.createjs || {};
 // VideoLoader.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -6987,8 +6934,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // SpriteSheetLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";
@@ -7166,8 +7111,6 @@ this.createjs = this.createjs || {};
 // SVGLoader.js
 //##############################################################################
 
-this.createjs = this.createjs || {};
-
 (function () {
 	"use strict";
 
@@ -7246,8 +7189,6 @@ this.createjs = this.createjs || {};
 //##############################################################################
 // XMLLoader.js
 //##############################################################################
-
-this.createjs = this.createjs || {};
 
 (function () {
 	"use strict";

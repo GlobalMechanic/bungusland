@@ -154,7 +154,6 @@ function script_optimization()
 		.pipe($.newer(distro_scripts))
 		.pipe($.babel({
 			presets: ["es2015"],
-			only : /bungus*/
 		}))
 	   	.pipe($.uglify())
 		.pipe(gulp.dest(distro_scripts))

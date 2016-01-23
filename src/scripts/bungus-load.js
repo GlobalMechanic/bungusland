@@ -53,7 +53,6 @@ const BungusLoad = (function($, createjs) {
 	{
 		var image = ev.result;
 		console.log(image, ev);
-
 	}
 
 	function file_progress()
