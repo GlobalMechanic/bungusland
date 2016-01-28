@@ -7076,13 +7076,11 @@ button.close {
 body {
   font-family: 'OpenSans-Light', sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-size: 20px;
   color: #5e985e;
   background: #82a0ee; }
 
 h1 {
-  font-family: 'FrenteH1-Regular', sans-serif;
-  font-size: 60px; }
+  font-family: 'FrenteH1-Regular', sans-serif; }
 
 /*******************************************************/
 /*******************************************************/
@@ -7204,7 +7202,7 @@ h1 {
   left: 20px;
   width: 32px;
   height: 32px;
-  background: url("images/audio_icon.png");
+  background: url("../images/audio_icon.png");
   z-index: 10; }
 
 /*******************************************************/
@@ -7214,23 +7212,43 @@ h1 {
     width: 320px;
     height: 180px; }
   .carousel-indicators {
-    display: none; } }
+    display: none; }
+  body, a {
+    font-size: 12px; }
+  h1 {
+    font-size: 22px; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   iframe {
     width: 560px;
     height: 315px; }
   .carousel-indicators {
-    display: none; } }
+    display: none; }
+  body, a {
+    font-size: 18px; }
+  h1 {
+    font-size: 34px; } }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   iframe {
     width: 720px;
-    height: 405px; } }
+    height: 405px; }
+  body {
+    font-size: 21px; }
+  a {
+    font-size: 18px; }
+  h1 {
+    font-size: 44px; } }
 
 @media (min-width: 1200px) {
   iframe {
     width: 960px;
-    height: 540px; } }
+    height: 540px; }
+  body {
+    font-size: 24px; }
+  a {
+    font-size: 20px; }
+  h1 {
+    font-size: 60px; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -4,18 +4,16 @@
 /*******************************************************/
   //Universal
 /*******************************************************/
-body {
 
+body {
   font-family: 'OpenSans-Light', sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-size: 20px;
   color: $color-font;
   background: $color-bg;
 }
 
 h1 {
   font-family: 'FrenteH1-Regular', sans-serif;
-  font-size: 60px;
 }
 
 /*******************************************************/
@@ -182,12 +180,12 @@ h1 {
   left: 20px;
   width: 32px;
   height: 32px;
-  background: url("images/audio_icon.png");
+  background: url("../images/audio_icon.png");
   z-index: 10;
 }
 
 /*******************************************************/
-  //Forced Media For Carousel
+  //Custom Media Queries
 /*******************************************************/
 
 @media (max-width: 767px) {
@@ -197,6 +195,13 @@ h1 {
   }
   .carousel-indicators {
     display: none;
+  }
+  body, a {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
   }
 }
 
@@ -208,16 +213,43 @@ h1 {
   .carousel-indicators {
     display: none;
   }
+  body, a{
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
 }
+
 @media (min-width: 992px) and (max-width: 1199px) {
   iframe {
     width: 720px;
     height: 405px;
   }
+   body {
+    font-size: 21px;
+  }
+  a {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 44px;
+  }
 }
+
 @media (min-width: 1200px) {
   iframe {
     width: 960px;
     height: 540px;
+  }
+  body {
+    font-size: 24px;
+  }
+  a {
+    font-size: 20px;
+  }
+  h1 {
+    font-size: 60px;
   }
 }

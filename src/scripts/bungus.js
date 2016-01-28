@@ -114,16 +114,12 @@
 
 	function resize()
 	{
-		let is_port = is_portrait();
+		let port = is_portrait();
 
-		$welcome_nav
-			.add($videos_nav)
-			.switchClass(...switch_if(is_port, "col-xs-4", "col-xs-6"));
+		$(".landscape").setVisible(!port);
+		$(".portrait").setVisible(port);
 
-		$music_nav
-			.switchClass(...switch_if(is_port, "col-xs-4", "col-xs-12"));
-
-		$fixed_content.absoluteCenter();
+		$fixed_content.absoluteCenterY();
 		$scroll_content.relativeCenterY();
 
 		if ($carousel)
