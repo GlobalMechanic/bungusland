@@ -17,8 +17,11 @@ mixin logo(size)
 block fixed
 	.row.landscape
 		+logo(4)
+	.row.double-landscape.hidden
+		+logo(6)
 	.row.portrait.hidden
 		+logo(8)
+
 
 	.row.landscape
 		.col-xs-1
@@ -47,4 +50,10 @@ block fixed
 		.col-xs-1
 		each i in [3,4]
 			+island(panes[i], 5)
+		.col-xs-1
+
+	.row.double-landscape.hidden
+		.col-xs-1
+		each pane in panes
+			+island(pane, 2)
 		.col-xs-1

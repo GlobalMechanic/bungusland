@@ -114,10 +114,13 @@
 
 	function resize()
 	{
-		let port = is_portrait();
+		let landx2 = window.innerWidth > window.innerHeight * 2;
+		let port = window.innerWidth < window.innerHeight;
+		let land = !port && !landx2;
 
-		$(".landscape").setVisible(!port);
+		$(".landscape").setVisible(land);
 		$(".portrait").setVisible(port);
+		$(".double-landscape").setVisible(landx2);
 
 		$fixed_content.absoluteCenterY();
 		$scroll_content.relativeCenterY();
@@ -431,11 +434,6 @@
 	function switch_if(condition, a, b)
 	{
 		return condition ? [a,b] : [b,a];
-	}
-
-	function is_portrait()
-	{
-		return window.innerWidth < window.innerHeight;
 	}
 
 	function hide_loading_screen()
