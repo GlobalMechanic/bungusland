@@ -30,35 +30,34 @@ function setup_express()
 	var app_dir = is_production ? '/public' : '/src';
 	var maxTime = is_production ? seconds_in_a_month : 0;
 
-	app.locals.deployVersion = (new Date).getTime();
+	app.locals.ver = "?v=" + ((new Date).getTime()).toString();
 
 	app.use(compress());
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(express.static(__dirname + app_dir, { maxAge: maxTime }));
+	app.use((req, res, next) => {
+		res.locals.mobile = is_caller_mobile(req);
+		res.locals.append = req.query.append == "true";
+		next();
+	});
 
 	app.set('view engine', 'jade');
 }
 
-function setup_routes()
+function setup_routes() 
 {
-	app.get("/", home_page);
+	app.get("/", 					(req, res) => res.render("home"));
+	app.get("/welcome", 			(req, res) => res.render("welcome"));
+	app.get("/videos", 				(req, res) => res.render("videos"));
+	app.get("/music", 				(req, res) => res.render("music"));
+	app.get("/scripts-and-synopsis",(req, res) => res.render("scripts-and-synopsis"));
+	app.get("/behind-the-scenes", 	(req, res) => res.render("behind-the-scenes"));
 }
 
 function start_server()
 {
 	app.listen(process.env.PORT || DEFAULT_PORT);
 }
-
-/*-----------------------------------------------------------------------------------------------
-  Pages
- -----------------------------------------------------------------------------------------------*/
-
-function home_page(req, res) 
-{
-	app.locals.mobile = is_caller_mobile(req);
-	res.render('home');
-}
-
 
 /*-----------------------------------------------------------------------------------------------
  Helper

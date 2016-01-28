@@ -1,22 +1,37 @@
 block variables
 
-doctype html
-html
-  head
+unless append
+	doctype html
+	html(lang="en")
+		head
 
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
 
-    block title
-      title Template
+		block title
+			title Bungusland
 
-    link(rel='icon', href='images/favicon.png?v=#{deployVersion}', type='image/x-icon')
-    link(rel='shortcut icon', href='images/favicon.png?v=#{deployVersion}', type='image/x-icon')
-    link(rel='stylesheet', href='/styles/main.css?v=#{deployVersion}')
+		link(rel='icon', href='images/favicon.png#{ver}', type='image/x-icon')
+		link(rel='shortcut icon', href='images/favicon.png#{ver}', type='image/x-icon')
+		link(rel='stylesheet', href='/styles/main.css#{ver}')
 
-    script(type='text/javascript', src='/scripts/mousetrap.js?v=#{deployVersion}')
-    script(type='text/javascript', src='/scripts/jquery-2.2.0.js?v=#{deployVersion}')
-    script(type='text/javascript', src='/scripts/bungusland.js?v=#{deployVersion}')
+		script(src='/scripts/jquery-2.2.0.js#{ver}')
+		script(src='/scripts/jquery.wait-for-images.js#{ver}')
+		script(src='/scripts/mousetrap.js#{ver}')
+		script(src='/scripts/soundcloud-api.js#{ver}')
+		script(src='/scripts/bootstrap.js#{ver}')
+		script(src='/scripts/bungus.js#{ver}')
 
-  body
-    block content
+		body
+			#webload
+				img(src="images/overlay_webload.gif#{ver}")
+			#fixed-content.hidden.container
+				block fixed
+			#modal
+			#music.hidden
+				audio(loop)
+					source(src="content/Bungusland_Overture.mp3" type="audio/mpeg")
+			#scroll-content.hidden.container
+				block scroll
+else
+	block scroll

@@ -1,0 +1,31 @@
+extends layout
+
+block title
+	title Bungusland - Music
+
+block scroll
+
+	.row
+		.col-sm-1
+		.col-sm-10
+			h1 Music
+		.col-sm-1
+
+	.row
+		.col-sm-1
+		.col-sm-10
+			p Select a track to listen to, using the Soundcloud player below. There are a lot of amazing tracks so don’t forget to scroll down within the player for more content.
+		.col-sm-1
+
+	.row
+		.top-spacer
+	.row
+		.col-sm-1
+		.col-sm-10.col-xs-12#music_player.center
+			iframe#music_widget(scrolling="no",frameborder="no",width="960",height="540",src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/174038689%3Fsecret_token%3Ds-7bprN&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false")
+		.col-sm-1
+	.row
+		.top-spacer
+	.row
+		.col-sm-12.pane_footer
+			img.img-responsive.margin-center(src="images/footer_music.png#{ver}")

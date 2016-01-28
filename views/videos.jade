@@ -1,0 +1,47 @@
+extends layout
+
+block variables
+	-
+		var videos=[
+			{
+				thumbURL: "images/thumb_robo_walrus.jpg",
+				vimeoID: 148967717,
+				description: "Robo Walrus"
+			},
+			{
+				thumbURL: "images/thumb_betty_vocal_test.jpg",
+				vimeoID: 148967713,
+				description: "Betty Vocal Test"
+			},
+			{
+				thumbURL: "images/thumb_fore_armed.jpg",
+				vimeoID: 148967715,
+				description: "Four Armed is Fore Warned"
+			}
+		]
+
+block title
+	title Bungusland - Videos
+
+block scroll
+
+	.row
+		.col-sm-1
+		.col-sm-10
+			h1 Videos
+		.col-sm-1
+	.row
+		.col-sm-1
+		.col-sm-10
+			p Please click on a thumbnail below to watch the relevant video. These are early pre-production videos created to give a firm idea of the tone and style of the show. To watch fullscreen press the icon on the far right of the video player controls.
+		.col-sm-1
+
+	.row
+		each video in videos
+			.top-spacer
+			.col-xs-4.video-preview.carousel-content.carousel-src-videos(data-vimeo-id="#{video.vimeoID}")
+				img.img-responsive.margin-center(src="#{video.thumbURL}#{ver}")
+				p= video.description
+	.row
+		.col-sm-12.pane_footer
+			img.img-responsive.margin-center(src="images/footer_video.png#{ver}")

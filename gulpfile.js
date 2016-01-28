@@ -43,6 +43,7 @@ function build_task()
 	style_optimization();
 	image_optimization();
 	script_optimization();
+	content_optimization();
 	copy_newer("fonts");
 }
 
@@ -158,6 +159,34 @@ function script_optimization()
 	   	.pipe($.uglify())
 		.pipe(gulp.dest(distro_scripts))
 		.pipe($.size());
+}
+
+function content_optimization()
+{
+	var distro_content = distro + "/content";
+	var source_content = source + "/content";
+
+	gulp.src(source_content + '/*.png')
+		.pipe($.newer(distro_content))
+		.pipe($.imagemin({
+			progressive: true,
+			interlaced: true
+		}))
+		.pipe(gulp.dest(distro_content))
+		.pipe($.size());
+
+	var media = [
+		source_content + '/*.mp3',
+		source_content + '/*.mp4',
+		source_content + '/*.gif',
+		source_content + '/*.pdf'
+	]
+
+	gulp.src(media)
+		.pipe($.newer(distro_content))
+		.pipe(gulp.dest(distro_content))
+		.pipe($.size());
+
 }
 
 function copy_newer(dir)

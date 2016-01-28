@@ -9,16 +9,25 @@ body {
   font-family: 'OpenSans-Light', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 20px;
-
+  color: $color-font;
   background: $color-bg;
 }
 
+h1 {
+  font-family: 'FrenteH1-Regular', sans-serif;
+  font-size: 60px;
+}
 
 /*******************************************************/
   //Helper and Generic
 /*******************************************************/
+
 .center {
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .transition-1s {
@@ -31,49 +40,48 @@ body {
   justify-content: center;
 }
 
-.pure-center {
+.margin-center {
   margin-left: auto;
   margin-right: auto;
 }
 
-.vertical-spacer {
-  min-height: 0vh;
-  height: 5vh;
+.top-spacer {
+  margin-top: 5vh;
+}
+
+.fixed {
+  position: fixed;
+  top: 0px;
+  left: 0px;
   width: 100vw;
+  height: 100vh;
 }
 
 /*******************************************************/
   //Main Preload
 /*******************************************************/
 
-#main-webload {
+#webload {
   @extend .flex-center;
+  @extend .fixed;
 
-  position: fixed;
+
   z-index: 5;
-
-  width: 100vw;
-  height: 100vh;
-
   background-color: $color-content;
 
   margin: auto;
 }
 
-#main-webload.preload-complete {
+#webload.preload-complete {
   height: 0vh;
 }
 
-#main-webload img {
+#webload img {
   @include transition(1s);
   @include scale(1)
 }
-#main-webload.preload-complete img {
+#webload.preload-complete img {
   @include scale(0);
-}
-
-#main-content {
-  display: none;
 }
 
 /*******************************************************/
@@ -81,19 +89,135 @@ body {
 /*******************************************************/
 
 .btn {
-  @include transition(0.2s);
   cursor: pointer;
+  box-shadow: none !important;
 }
 
 .nav-btn {
   @extend .btn;
-  background-color: $dark * $color-content;
-  color: $darkest * $color-content;
-
-  max-width: 400px;
+  -webkit-filter: brightness(100%);
 }
 
 .nav-btn:hover {
-  color: $darker * $color-content;
+  -webkit-filter: brightness(120%);
+}
+
+/*******************************************************/
+  //Content
+/*******************************************************/
+
+.rounded {
+  border-radius: 12.5px;
+}
+
+#fixed-content {
+  @extend .fixed;
+
+  z-index: -2;
+}
+
+#modal {
+  @extend .fixed;
+
+  background: rgba(0,0,0,0.75);
+  z-index: 1;
+}
+
+#scroll-content {
+  @extend .rounded;
+  box-sizing: border-box;
   background-color: $color-content;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+
+/*******************************************************/
+  //Content
+/*******************************************************/
+
+.video-preview {
+  @extend .btn;
+  @extend .rounded;
+}
+
+.video-preview img {
+  border-radius: 12.5px;
+  box-shadow: 2px 2px 5px $dark * $color-content;
+}
+
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+}
+
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.carousel-inner {
+  margin-bottom: 50px;
+}
+
+#carousel-main {
+  position: relative;
+  z-index: 2;
+  @extend .rounded;
+  background-color: black;
+}
+
+.slideshow-preview {
+  @extend .btn;
+}
+
+/*******************************************************/
+  // Music
+/*******************************************************/
+
+#music {
+  position: fixed;
+  cursor: pointer;
+  top: 20px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  background: url("images/audio_icon.png");
+  z-index: 10;
+}
+
+/*******************************************************/
+  //Forced Media For Carousel
+/*******************************************************/
+
+@media (max-width: 767px) {
+  iframe {
+    width: 320px;
+    height: 180px;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  iframe {
+    width: 560px;
+    height: 315px;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  iframe {
+    width: 720px;
+    height: 405px;
+  }
+}
+@media (min-width: 1200px) {
+  iframe {
+    width: 960px;
+    height: 540px;
+  }
 }

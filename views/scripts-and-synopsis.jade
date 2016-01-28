@@ -1,0 +1,164 @@
+extends layout
+
+block variables
+	-
+		var pdfs=[
+			{
+				url: "content/Welcome to Bungusland EPISODE 1 4TH DRAFT A New mayor In Bungusland.pdf",
+				icon: "images/pdf_logo_script.png",
+				title: "Script: A New Mayor on Bungus Street"
+			},
+
+			{
+				url: "content/Welcome To Bungusland EPISODE Fore Warned is Four Armed 1st draft.pdf",
+				icon: "images/pdf_logo_script.png",
+				title: "Script: Fore Warned is Four Armed"
+			},
+
+			{
+				url: "content/Welcome To Bungusland EPISODE Mist Opportunity 1st draft.pdf",
+				icon: "images/pdf_logo_script.png",
+				title: "Script: Mist Opportunity"
+			},
+
+			{
+				url: "content/Welcome To Bungusland EPISODE Stuck In Limbo 1st draft.pdf",
+				icon: "images/pdf_logo_script.png",
+				title: "Script: Stuck In Limbo"
+			},
+
+			{
+				url: "content/Welcome To Bungusland EPISODE The Unicycle Thief.pdf",
+				icon: "images/pdf_logo_script.png",
+				title: "Script: The Unicycle Thief"
+			},
+
+			{
+				url: "content/Welcome To Bungusland EPISODE Viva Las Vegas 1st draft.pdf",
+				icon: "images/pdf_logo_script.png",
+				title: "Script: Viva Las Vegas"
+			},
+
+			{
+				url: "content/Robo Walrus storyboards.pdf",
+				icon: "images/pdf_logo_storyboard.png",
+				title: "Storyboard: Viva Las Vegas"
+			},
+
+			{
+				url: "content/Storyboard_sea cucumber girl animatic.pdf",
+				icon: "images/pdf_logo_storyboard.png",
+				title: "Storyboard: Sea Cucumber"
+			},
+
+			{
+				url: "content/Storyboard bean and gone.pdf",
+				icon: "images/pdf_logo_storyboard.png",
+				title: "Storyboard: Bean And Gone"
+			},
+
+			{
+				url: "content/storyboard bungusland episode the unicycle thief.pdf",
+				icon: "images/pdf_logo_storyboard.png",
+				title: "Storyboard: Unicycle Thief"
+			},
+
+			{
+				url: "content/Storyboard Bungusland; EP1 new mayor_w notes.pdf",
+				icon: "images/pdf_logo_storyboard.png",
+				title: "Storyboard: New Mayor"
+			},
+
+			 {
+				url: "content/Welcome to Bungusland episode synopsis The Hungry Games.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: The Hungry Games"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis Teryaki Terror.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: Teryaki Terror"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis Stink Floyd.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: Stink Floyd"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis Magellephant.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: Magellephant"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis Las Pepino Diablo.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: Las Pepino Diablo"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis Call Me Fishmael.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: Call Me Fishmael"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis Bean and gone.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: Bean and Gone"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis A Pain in the Neck.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: A Pain in the Neck"
+			},
+
+			{
+				url: "content/Welcome to Bungusland episode synopsis A New Mayor On Bungus Street.pdf",
+				icon: "images/pdf_logo_synopsis.png",
+				title: "Synopsis: A New Mayor on Bungus Street"
+			},
+		]
+		var i = 0;
+
+mixin pdf(pdf)
+	unless pdf == undefined
+		a.col-xs-3.col-sm-2(target="_blank", href="#{pdf.url}#{ver}")
+			img.img-responsive.margin-center(src="#{pdf.icon}#{ver}")
+			p=pdf.title
+
+block title
+	title Bungusland - Scripts And Synopsis
+
+block scroll
+
+	.row
+		.col-sm-1
+		.col-sm-10
+			h1 Scripts And Synopsis
+		.col-sm-1
+
+	.row
+		.col-sm-1
+		.col-sm-10
+			p Please click an icon below to download a PDF version of the relevant Script, Synopsis or Storyboard.
+		.col-sm-1
+
+	.top-spacer
+	while i < pdfs.length
+		.row.center
+			.col-sm-2
+			+pdf(pdfs[i])
+			+pdf(pdfs[i + 1])
+			+pdf(pdfs[i + 2])
+			+pdf(pdfs[i + 3])
+			.col-sm-2
+			- i += 4
+	.row
+		.col-sm-12.pane_footer
+			img.img-responsive.margin-center(src="images/footer_scripts.png#{ver}")
+

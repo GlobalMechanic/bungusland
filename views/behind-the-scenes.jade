@@ -1,0 +1,61 @@
+extends layout
+
+block variables
+	-
+		var videos=[
+			{
+				thumbURL: "images/thumb_video_sound_test.jpg",
+				vimeoID: 148967714,
+				description: "Video & Sound Test"
+			},
+			{
+				thumbURL: "images/thumb_sgc_animatic.jpg",
+				vimeoID: 148967716,
+				description: "SCG Animatic"
+			},
+			{
+				thumbURL: "images/thumb_lobster_song.jpg",
+				vimeoID: 148967718,
+				description: "The Lobster Song"
+			},
+			{
+				thumbURL: "images/thumb_simon_interview.jpg",
+				vimeoID: 149342044,
+				description: "Simon Bungus Interview"
+			}
+		]
+
+block title
+	title Bungusland - Behind The Scenes
+
+block scroll
+
+	.row
+		.col-sm-1
+		.col-sm-10
+			h1 Behind The Scenes
+		.col-sm-1
+
+	.row
+		.col-sm-1
+		.col-sm-10
+			p Choose an option below by clicking on the relevant thumbnail. The behind the scenes videos are by Bungusland creator and all round rockstar Simon Knowles. They chronicle the history of Bungusland and also gives a bit of background about the creator. Doodles and drawings contains a collection of random Bungusland images and concepts.
+		.col-sm-1
+
+	.row
+		each video in videos
+			.top-spacer
+			.col-xs-6.col-sm-3.video-preview.carousel-content.carousel-src-bts(data-vimeo-id="#{video.vimeoID}")
+				img.img-responsive.margin-center(src="#{video.thumbURL}#{ver}")
+				p= video.description
+
+	.row
+		.col-xs-4
+		.col-xs-4.slideshow-preview.carousel-content.carousel-src-slideshow
+			img.img-responsive.margin-center(src="images/slideshow_logo.png#{ver}")
+			p SlideShow
+		.col-xs-4
+
+	.row
+		.col-sm-12.pane_footer
+			img.img-responsive.margin-center(src="images/footer_behind_the_scenes.png#{ver}")
