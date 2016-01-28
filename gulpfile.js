@@ -45,6 +45,7 @@ function build_task()
 	script_optimization();
 	content_optimization();
 	copy_newer("fonts");
+	copy_newer("data");
 }
 
 function nodemon_task(callback) {

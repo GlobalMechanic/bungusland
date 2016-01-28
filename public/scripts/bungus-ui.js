@@ -1,1 +1,0 @@
-"use strict";var BungusUI=function(n,t){function a(){c()}function e(){}function c(){n(".nav-btn").click(function(){var t=n(this),a=t.data("target-pane");alert(a)})}return n(window).load(a),n(window).load(e),Object.freeze({})}($,createjs);

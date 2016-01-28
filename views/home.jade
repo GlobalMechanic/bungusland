@@ -15,45 +15,52 @@ mixin logo(size)
 	div(class="col-xs-#{(12-size)/2}")
 
 block fixed
-	.row.landscape
-		+logo(4)
-	.row.double-landscape.hidden
-		+logo(6)
-	.row.portrait.hidden
-		+logo(8)
+	if mobile
+		.row.landscape
+			+logo(4)
+		.row.double-landscape.hidden
+			+logo(6)
+		.row.portrait.hidden
+			+logo(8)
 
+		.row.landscape
+			.col-xs-1
+			each i in [0,1,2]
+				+island(panes[i], (i == 1 ? 4 : 3))
+			.col-xs-1
 
-	.row.landscape
-		.col-xs-1
-		each i in [0,1,2]
-			+island(panes[i], (i == 1 ? 4 : 3))
-		.col-xs-1
+		.row.portrait.hidden
+			.col-xs-1
+			each i in [0,2]
+				+island(panes[i], 5)
+			.col-xs-1
 
-	.row.portrait.hidden
-		.col-xs-1
-		each i in [0,2]
-			+island(panes[i], 5)
-		.col-xs-1
+		.row.portrait.hidden
+			.col-xs-3
+			+island(panes[1], 6)
+			.col-xs-3
 
-	.row.portrait.hidden
-		.col-xs-3
-		+island(panes[1], 6)
-		.col-xs-3
+		.row.landscape
+			.col-xs-3
+			each i in [3,4]
+				+island(panes[i], 3)
+			.col-xs-3
 
-	.row.landscape
-		.col-xs-3
-		each i in [3,4]
-			+island(panes[i], 3)
-		.col-xs-3
+		.row.portrait.hidden
+			.col-xs-1
+			each i in [3,4]
+				+island(panes[i], 5)
+			.col-xs-1
 
-	.row.portrait.hidden
-		.col-xs-1
-		each i in [3,4]
-			+island(panes[i], 5)
-		.col-xs-1
+		.row.double-landscape.hidden
+			.col-xs-1
+			each pane in panes
+				+island(pane, 2)
+			.col-xs-1
+	else
+		canvas#canvas.emscripten(oncontextmenu="event.preventDefault()", width="960px",height="540px")
 
-	.row.double-landscape.hidden
-		.col-xs-1
-		each pane in panes
-			+island(pane, 2)
-		.col-xs-1
+block body
+	unless mobile
+		script(src='/scripts/UnityConfig.js#{ver}')
+		script(src='/scripts/UnityLoader.js#{ver}')

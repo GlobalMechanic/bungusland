@@ -1,6 +1,6 @@
 "use strict";
 
-~function($){
+window.bungus = (function($){
 
 	const TRANSITION_EVENT = "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd";
 	const VIMEO_URL = "https://player.vimeo.com/video/";
@@ -105,7 +105,8 @@
 	function setup()
 	{
 		extend_jquery();
-		hide_loading_screen();
+		if (!$("#canvas").exists())
+			hide_loading_screen();
 		create_interactions();
 		music_handling();
 		soundcloud_handling();
@@ -114,8 +115,8 @@
 
 	function resize()
 	{
-		let landx2 = window.innerWidth > window.innerHeight * 2;
 		let port = window.innerWidth < window.innerHeight;
+		let landx2 = window.innerWidth > window.innerHeight * 2;
 		let land = !port && !landx2;
 
 		$(".landscape").setVisible(land);
@@ -367,7 +368,7 @@
 		$(".nav-btn").click((ev) => {
 			let $this = $(ev.currentTarget);
 			let paneId = $this.data("target-pane");
-			show_pane(paneId);
+			show_pane(paneId, true);
 		});
 
 		//cuz dynamic
@@ -460,10 +461,11 @@
 		music_resume();
 	}
 
-	function show_pane(id)
+	function show_pane(id, setLocation)
 	{
+		console.log(id);
 		if (!loaded_panes.has(id)) {
-			load_pane(id);
+			load_pane(id, setLocation);
 			return;
 		}
 
@@ -481,8 +483,11 @@
 
 	}
 
-	function load_pane(id) {
+	function load_pane(id, setLocation) {
+
+		setLocation = !!setLocation;
 		loaded_panes.add(id);
+
 		let url = '/' + id;
 		let $pane = $(`<div id="${id}-pane" class="hidden pane"></div>`);
 
@@ -504,6 +509,11 @@
 		});
 	}
 
+	function unity_trigger(key) {
+		if (key == "start")
+			hide_loading_screen();
+	}
+
 	/********************************************/
 	// Execute	
 	/********************************************/
@@ -518,4 +528,12 @@
 	$(window).resize(resize);
 	$(window).on("orientationchange", resize);
 
-}($)
+	return Object.freeze({
+		get showPane() {
+			return show_pane;
+		},
+		get unityTrigger() {
+			return unity_trigger;
+		}
+	});
+})($)
