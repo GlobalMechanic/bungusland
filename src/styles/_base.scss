@@ -28,9 +28,6 @@ h1 {
   display: none;
 }
 
-.transition-1s {
-  @include transition(1s);
-}
 
 .flex-center {
   display: flex;
@@ -75,9 +72,9 @@ h1 {
 }
 
 #webload img {
-  @include transition(1s);
   @include scale(1)
 }
+
 #webload.preload-complete img {
   @include scale(0);
 }
@@ -99,6 +96,22 @@ h1 {
 .nav-btn:hover {
   -webkit-filter: brightness(120%);
 }
+
+.x-close {
+  @extend .btn;
+
+  font-family: Arial;
+  font-size: 3vw;
+  line-height: 0;
+
+  width: 35px;
+  height: 35px;
+
+  position: absolute;
+  z-index: 5;
+  left: 0 !important;
+}
+
 
 /*******************************************************/
   //Content
@@ -128,7 +141,7 @@ h1 {
   overflow: hidden;
   padding: 15px;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 
@@ -165,6 +178,10 @@ h1 {
   background-color: black;
 }
 
+.x-close-down-more {
+  top: 1vh !important;
+}
+
 .slideshow-preview {
   @extend .btn;
 }
@@ -181,7 +198,7 @@ h1 {
   width: 32px;
   height: 32px;
   background: url("../images/audio_icon.png");
-  z-index: 10;
+  z-index: 2;
 }
 
 canvas {

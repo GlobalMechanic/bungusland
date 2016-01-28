@@ -1,0 +1,12 @@
+.transition-1s {
+  -webkit-transition: 1s;
+  transition: 1s; }
+
+#webload img {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1); }
+
+/*# sourceMappingURL=animation.css.map */

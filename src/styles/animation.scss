@@ -1,0 +1,10 @@
+@import 'mixins';
+
+.transition-1s {
+  @include transition(1s);
+}
+
+#webload img {
+  @include transition(1s);
+  @include scale(1)
+}

@@ -251,6 +251,7 @@ window.bungus = (function($){
 
 		$carousel = 
 		$(`<div id="carousel-main" class="carousel slide" data-ride="carousel" data-interval="false">
+				<div class="x-close x-close-down-more" style="color: white !important;">x</div>
 				<!-- Indicators -->
 				<ol class="carousel-indicators"></ol>
 
@@ -280,6 +281,9 @@ window.bungus = (function($){
 	{
 		$music = $("#music");
 		$music.setVisible(true);
+
+		if (!$music.exists())
+			return;
 
 		audio = $music.find("audio")[0];
 		audio.play();
@@ -383,21 +387,38 @@ window.bungus = (function($){
 				show_slideshow_content();
 		});
 
-		$modal.click(() => {
-			let to_fixed_content = $carousel == null || !$carousel.isVisible();
+		$(document.body).on('click', '.x-close', close_content);
 
-			//If there is no fixed content, it's because we're viewing one of the island
-			//directly, rather than loaded from a pane. If that's the case, we just go back to the
-			//root to serve the page
-			if (to_fixed_content && !$fixed_content.children().exists()) {
-				let origin = window.location.origin;
-				window.location = origin;
-			} else if (to_fixed_content)
-				hide_all_panes();
-			else
-				hide_carousel();
-		});
+		$modal.click(close_content);
 
+	}
+
+	function close_content()
+	{
+		let to_fixed_content = $carousel == null || !$carousel.isVisible();
+
+		//If there is no fixed content, it's because we're viewing one of the island
+		//directly, rather than loaded from a pane. If that's the case, we just go back to the
+		//root to serve the page
+		if (to_fixed_content && !$fixed_content.children().exists())
+			go_home();
+		else if (to_fixed_content)
+			hide_all_panes();
+		else
+			hide_carousel();
+	}
+
+	function go_home()
+	{
+		go("");
+	}
+
+	function go(subdir)
+	{
+		subdir = typeof(subdir) == "string" ? "/" + subdir : "";
+
+		let origin = window.location.origin;
+				window.location = origin + subdir
 	}
 
 	function show_video_content($selection, initialID)
@@ -486,6 +507,13 @@ window.bungus = (function($){
 	function load_pane(id, setLocation) {
 
 		setLocation = !!setLocation;
+
+		//on mobile, we'll load the pane seperatly
+		if (setLocation) {
+			go(id);
+			return;
+		}
+
 		loaded_panes.add(id);
 
 		let url = '/' + id;
@@ -510,8 +538,12 @@ window.bungus = (function($){
 	}
 
 	function unity_trigger(key) {
-		if (key == "start")
-			hide_loading_screen();
+		if (typeof unity_triggers[key] == "function")
+			unity_triggers[key]();
+	}
+
+	var unity_triggers = {
+		start: hide_loading_screen
 	}
 
 	/********************************************/

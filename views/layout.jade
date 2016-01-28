@@ -14,6 +14,8 @@ unless append
 		link(rel='icon', href='images/favicon.png#{ver}', type='image/x-icon')
 		link(rel='shortcut icon', href='images/favicon.png#{ver}', type='image/x-icon')
 		link(rel='stylesheet', href='/styles/main.css#{ver}')
+		unless mobile
+			link(rel='stylesheet', href='/styles/animation.css#{ver}')
 
 		script(src='/scripts/jquery-2.2.0.js#{ver}')
 		script(src='/scripts/jquery.wait-for-images.js#{ver}')
@@ -28,9 +30,12 @@ unless append
 			#fixed-content.hidden.container
 				block fixed
 			#modal
-			#music.hidden
-				audio(loop)
-					source(src="content/Bungusland_Overture.mp3" type="audio/mpeg")
+
+			unless mobile
+				#music.hidden
+					audio(loop)
+						source(src="content/Bungusland_Overture.mp3" type="audio/mpeg")
+
 			#scroll-content.hidden.container
 				block scroll
 			block body

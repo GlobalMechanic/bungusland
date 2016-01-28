@@ -12,6 +12,8 @@ var bodyParser	= require('body-parser');
  -----------------------------------------------------------------------------------------------*/
 
 const DEFAULT_PORT = 5000;
+var is_production = false;
+var test_mobile = false;
 
 /*-----------------------------------------------------------------------------------------------
   Setup
@@ -23,7 +25,7 @@ function setup_express()
 	if (!process.env.NODE_ENV) 
 		process.env.NODE_ENV = 'production';
 
-	var is_production = process.env.NODE_ENV == 'production';
+	is_production = process.env.NODE_ENV == 'production';
 
 	var seconds_in_a_month = 86400000 * 30;
 
@@ -36,7 +38,7 @@ function setup_express()
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(express.static(__dirname + app_dir, { maxAge: maxTime }));
 	app.use((req, res, next) => {
-		res.locals.mobile = is_caller_mobile(req);
+		res.locals.mobile = (test_mobile && !is_production) || is_caller_mobile(req);
 		res.locals.append = req.query.append == "true";
 		next();
 	});
