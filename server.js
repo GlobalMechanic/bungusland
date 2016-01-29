@@ -13,7 +13,7 @@ var bodyParser	= require('body-parser');
 
 const DEFAULT_PORT = 5000;
 var is_production = false;
-var test_mobile = false;
+var test_mobile = true;
 
 /*-----------------------------------------------------------------------------------------------
   Setup

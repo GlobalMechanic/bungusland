@@ -7206,7 +7206,7 @@ h1 {
   height: 35px;
   position: absolute;
   z-index: 5;
-  left: 0 !important; }
+  right: 1.5% !important; }
 
 /*******************************************************/
 /*******************************************************/
@@ -7276,9 +7276,9 @@ canvas {
   .carousel-indicators {
     display: none; }
   body, a {
-    font-size: 12px; }
+    font-size: 14px; }
   h1 {
-    font-size: 22px; } }
+    font-size: 40px; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   iframe {
@@ -7289,25 +7289,25 @@ canvas {
   body, a {
     font-size: 18px; }
   h1 {
-    font-size: 34px; } }
+    font-size: 45px; } }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   iframe {
     width: 720px;
     height: 405px; }
   body {
-    font-size: 21px; }
+    font-size: 23px; }
   a {
-    font-size: 18px; }
+    font-size: 20px; }
   h1 {
-    font-size: 44px; } }
+    font-size: 50px; } }
 
 @media (min-width: 1200px) {
   iframe {
     width: 960px;
     height: 540px; }
   body {
-    font-size: 24px; }
+    font-size: 23px; }
   a {
     font-size: 20px; }
   h1 {

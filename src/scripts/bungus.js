@@ -105,12 +105,15 @@ window.bungus = (function($){
 	function setup()
 	{
 		extend_jquery();
-		if (!$("#canvas").exists())
-			hide_loading_screen();
+
 		create_interactions();
 		music_handling();
 		soundcloud_handling();
+		if (!$("#canvas").exists())
+			hide_loading_screen();
 		resize();
+		//Workaround for wierd problem where resizing won't work when pressing back
+		setTimeout(resize, 1000);
 	}
 
 	function resize()
